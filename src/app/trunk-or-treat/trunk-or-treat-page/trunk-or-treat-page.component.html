@@ -1,0 +1,14 @@
+<h1>Trunk-Or-Treat!</h1>
+<p>
+  There will be a trunk-or-treat in the parking lot that will run from 5 to 7 pm. Candy will be provided for you, all
+  you need to do is show up with a decorated car and hand out candy to the little gouls and goblins. There will be
+  trophy for best decorated car. So craft yourself the most frightening car you can and show us what you can do.
+</p>
+<p class="directions" *ngIf="loadingState !== States.COMPLETED">All forms fields must be completed to submit. Contact
+  <a href="mailto:nephi@bellecreekmd.org">nephi@bellecreekmd.org</a>
+  to make changes.
+</p>
+<bc-trunk-or-treat-form (stateChanged)="stateChanged($event)" *ngIf="loadingState !== States.COMPLETED">
+</bc-trunk-or-treat-form>
+<bc-trunk-or-treat-complete (reset)="stateChanged(States.UNSTARTED)" *ngIf="loadingState === States.COMPLETED">
+</bc-trunk-or-treat-complete>
