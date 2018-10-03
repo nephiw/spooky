@@ -1,0 +1,37 @@
+<form [formGroup]="trunkOrTreatForm" (ngOnSubmit)="submitTrunkOrTreatForm()">
+  <div class="input-item group">
+    <input required="required" type="text" formControlName="firstName" />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="first-name">First Name</label>
+  </div>
+
+  <div class="input-item group">
+    <input required="required" type="text" formControlName="lastName" />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="last-name">Last Name</label>
+  </div>
+
+  <div class="input-item group">
+    <input required="required" type="email" formControlName="emailAddress" />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="email-address">Email Address</label>
+  </div>
+
+  <div class="input-item group">
+    <input type="number" formControlName="carCount" />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="car-count">Number of Cars</label>
+  </div>
+  <div>
+    <button class="btn btn-submit"
+            [disabled]="trunkOrTreatForm.invalid || trunkOrTreatForm.pristine"
+            (click)="submitTrunkOrTreatForm()"
+            type="submit">
+      Sign Up
+    </button>
+  </div>
+</form>
