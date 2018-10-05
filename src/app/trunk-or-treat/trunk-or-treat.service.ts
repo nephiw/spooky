@@ -4,7 +4,7 @@ import { Contact } from './contact';
 
 @Injectable()
 export class TrunkOrTreatService {
-  private readonly InvalidStringRegEx = /\./g;
+  private readonly InvalidStringRegEx = /[^a-zA-Z0-9]/g;
 
   constructor(private db: AngularFireDatabase) { }
 
