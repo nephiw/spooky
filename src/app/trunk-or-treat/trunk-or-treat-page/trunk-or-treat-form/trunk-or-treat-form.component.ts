@@ -20,7 +20,7 @@ export class TrunkOrTreatFormComponent implements OnInit {
     this.trunkOrTreatForm = new FormGroup({
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
-      emailAddress: new FormControl('', Validators.required),
+      emailAddress: new FormControl('', [Validators.required, Validators.email]),
       carCount: new FormControl(1, Validators.required)
     });
   }
