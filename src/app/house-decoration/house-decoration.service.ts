@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { ContactService } from 'common/contact.service';
-import { Trunk } from 'common/trunk';
 
 @Injectable()
-export class TrunkOrTreatService {
+export class HouseDecorationService {
 
   constructor(
     private db: AngularFireDatabase,
     private contactService: ContactService
-  ) {}
+  ) { }
 
-  public async createNewContact(data: any) {
+  public async createHouse(data: any) {
     const contactKey = this.contactService.generateKey(data);
-    const trunk = new Trunk({ contactKey: contactKey, numTrunks: data.carCount });
+    const house = { contactKey, streetAddress: data.streetAddress };
 
     await this.contactService.createNewContact(data);
 
-    const trunks = this.db.object('/trunks');
-    trunks.update({ [ contactKey ]: trunk });
+    const houses = this.db.object('/houses');
+    houses.update({ [ contactKey ]: house });
 
-    return this.db.object(`/trunks/${ contactKey }`);
+    return this.db.object(`/houses/${ contactKey }`);
   }
 }

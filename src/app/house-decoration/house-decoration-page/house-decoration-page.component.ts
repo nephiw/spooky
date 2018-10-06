@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingState } from 'common/loading-state.enum';
 
 @Component({
-  selector: 'bc-trunk-or-treat-page',
-  templateUrl: './trunk-or-treat-page.component.html',
-  styleUrls: ['./trunk-or-treat-page.component.less']
+  selector: 'bc-house-decoration-page',
+  templateUrl: './house-decoration-page.component.html',
+  styleUrls: ['./house-decoration-page.component.less']
 })
-export class TrunkOrTreatPageComponent implements OnInit {
+export class HouseDecorationPageComponent implements OnInit {
   public loadingState: LoadingState;
-  public States: any = LoadingState;
+  public States = LoadingState;
 
   constructor() { }
 
-  public ngOnInit(): void {
+  ngOnInit() {
     this.loadingState = LoadingState.UNSTARTED;
   }
 
