@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { TrunkOrTreatService } from '../../trunk-or-treat.service';
-import { LoadingState } from '../trunk-or-treat-page.component';
+import { TrunkOrTreatService } from 'trunk-or-treat/trunk-or-treat.service';
+import { LoadingState } from 'common/loading-state.enum';
 
 @Component({
   selector: 'bc-trunk-or-treat-form',

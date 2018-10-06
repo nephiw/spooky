@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 import { HomePageComponent } from './home-page/home-page.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ContactService } from 'common/contact.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
     AngularFirestoreModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

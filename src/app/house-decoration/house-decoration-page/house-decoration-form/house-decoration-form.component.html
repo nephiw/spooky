@@ -1,0 +1,38 @@
+<form [formGroup]="decorationForm" (ngOnSubmit)="submitDecorationForm()">
+  <div class="input-item group">
+    <input required type="text" formControlName="firstName" />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="first-name">First Name</label>
+  </div>
+
+  <div class="input-item group">
+    <input required type="text" formControlName="lastName" />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="last-name">Last Name</label>
+  </div>
+
+  <div class="input-item group">
+    <input required type="text" formControlName="streetAddress" />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="street-address">Street Address</label>
+  </div>
+
+  <div class="input-item group">
+    <input required type="email" formControlName="emailAddress" />
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label id="email-address">Email Address</label>
+  </div>
+
+  <div>
+    <button class="btn btn-submit"
+            [disabled]="decorationForm.invalid || decorationForm.pristine"
+            (click)="submitDecorationForm()"
+            type="button">
+      Sign Up
+    </button>
+  </div>
+</form>
