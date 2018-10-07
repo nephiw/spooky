@@ -8,18 +8,24 @@ import { environment } from '../environments/environment';
 import { HomePageComponent } from './home-page/home-page.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ContactService } from 'common/contact.service';
+import { ContactService } from 'common';
+import { AuthenticationPageComponent } from 'common/authentication';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { BcCommonModule } from 'common/bc-common.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    AuthenticationPageComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AppRoutingModule
+    AngularFireAuthModule,
+    AppRoutingModule,
+    BcCommonModule
   ],
   providers: [ContactService],
   bootstrap: [AppComponent]

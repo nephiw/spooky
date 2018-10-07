@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { ContactService } from 'common/contact.service';
-import { Trunk } from 'common/trunk';
+import { ContactService, Trunk } from 'common';
 
 @Injectable()
 export class TrunkOrTreatService {

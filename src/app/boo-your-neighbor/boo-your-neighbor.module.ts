@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BooYourNeighborRoutingModule } from './boo-your-neighbor-routing.module';
-import { BooYourNeighborPageComponent } from './boo-your-neighbor-page/boo-your-neighbor-page.component';
+import { BooYourNeighborPageComponent } from './boo-your-neighbor-page';
 
 @NgModule({
   imports: [
     CommonModule,
     BooYourNeighborRoutingModule
   ],
-  declarations: [BooYourNeighborPageComponent]
+  declarations: [
+    BooYourNeighborPageComponent
+  ]
 })
 export class BooYourNeighborModule { }

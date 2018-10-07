@@ -9,7 +9,7 @@ import { ContactService } from './contact.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    AngularFireDatabaseModule,
+    AngularFireDatabaseModule
   ],
   providers: [
     ContactService
