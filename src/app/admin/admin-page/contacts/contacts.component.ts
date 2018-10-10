@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AdminService } from 'admin/admin.service';
-import { Contact, Trunk } from 'common';
 
 @Component({
   selector: 'bc-contacts',
