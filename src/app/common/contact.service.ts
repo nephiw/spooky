@@ -15,6 +15,7 @@ export class ContactService {
   public createNewContact(data): AngularFireObject<Contact> {
     const contact = new Contact(data);
     const contactKey = this.generateKey(contact);
+    contact.key = contactKey;
     const contacts = this.db.object('/contacts');
     contacts.update({ [ contactKey ]: contact });
 

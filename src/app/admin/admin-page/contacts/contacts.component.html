@@ -1,0 +1,8 @@
+<div class="contacts" *ngIf="allContacts$ | async as contacts">
+  <div *ngFor="let contact of contacts; let idx = index;" class="contact-card">
+    <div class="contact-index">{{ 1 + idx }}</div>
+    <div class="contact-name">Name: {{ contact.firstName }} {{ contact.lastName }}</div>
+    <div class="contact-email">Email: {{ contact.emailAddress }}</div>
+    <div class="contact-car-count">Number of vehicles: {{ contact.numTrunks }}</div>
+  </div>
+</div>

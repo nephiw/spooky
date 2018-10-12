@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BcCommonModule } from 'common/bc-common.module';
 
 import { TrunkOrTreatRoutingModule } from './trunk-or-treat-routing.module';
-import { TrunkOrTreatPageComponent } from './trunk-or-treat-page/trunk-or-treat-page.component';
 import { TrunkOrTreatService } from './trunk-or-treat.service';
-import { TrunkOrTreatFormComponent } from './trunk-or-treat-page/trunk-or-treat-form/trunk-or-treat-form.component';
-import { TrunkOrTreatCompleteComponent } from './trunk-or-treat-page/trunk-or-treat-complete/trunk-or-treat-complete.component';
-import { BcCommonModule } from 'common/bc-common.module';
+import {
+  TrunkOrTreatPageComponent,
+  TrunkOrTreatFormComponent,
+  TrunkOrTreatCompleteComponent
+} from './trunk-or-treat-page';
 
 @NgModule({
   imports: [
