@@ -9,7 +9,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ContactService } from 'common';
-import { AuthenticationPageComponent } from 'common/authentication';
+import { AuthenticationPageComponent, PasswordChangePageComponent } from 'common/authentication';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BcCommonModule } from 'common/bc-common.module';
 
@@ -17,7 +17,8 @@ import { BcCommonModule } from 'common/bc-common.module';
   declarations: [
     AppComponent,
     HomePageComponent,
-    AuthenticationPageComponent
+    AuthenticationPageComponent,
+    PasswordChangePageComponent
   ],
   imports: [
     BrowserModule,

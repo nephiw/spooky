@@ -17,6 +17,6 @@ import { ContactService } from './contact.service';
   exports: [
     ReactiveFormsModule,
     AngularFireDatabaseModule
-  ]
+  ],
 })
 export class BcCommonModule { }
