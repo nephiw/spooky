@@ -1,4 +1,4 @@
 <a class="logout float right" (click)="logout()">Logout</a>
 <h1>Spooky Admin</h1>
 <p>These are all of the contacts who have signed up for a trunk.</p>
-<bc-contacts></bc-contacts>
+<bc-contacts [contacts]="allContacts$ | async"></bc-contacts>
