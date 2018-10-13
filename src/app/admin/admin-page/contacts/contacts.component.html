@@ -4,17 +4,26 @@
     <div class="house-totals">There are currently {{ totalHouses }} decorated houses signed up.</div>
   </div>
 
+  <div class="filter group">
+    <label><input type="checkbox"
+                  name="houses"
+                  [(ngModel)]="showHouses"
+                  (change)="updateFilters()">Houses</label>
+    <label><input type="checkbox"
+                  name="trunks"
+                  [(ngModel)]="showTrunks"
+                  (change)="updateFilters()">Trunks</label>
+  </div>
+
   <table>
     <thead>
-      <th><!--Spacer for count--></th>
       <th>Name</th>
       <th>Email</th>
       <th>Trunks</th>
       <th>Address</th>
     </thead>
     <tbody>
-      <tr *ngFor="let contact of contacts; let idx = index;" class="contact-card">
-        <td class="contact-index" data-label="index">{{ 1 + idx }}</td>
+      <tr *ngFor="let contact of filteredContacts; let idx = index;" class="contact-card">
         <td class="contact-name" data-label="Name">{{ contact.firstName }} {{ contact.lastName }}</td>
         <td class="contact-email" data-label="Email">{{ contact.emailAddress }}</td>
         <td class="contact-trunks" data-label="Trunks">{{ contact.numTrunks }}</td>
