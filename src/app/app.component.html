@@ -13,5 +13,5 @@
   <div class="bottom-background">
     <img class="background" src="/assets/images/Kids.svg" alt="">
   </div>
-  <a [routerLink]="['/authentication']" class="auth muted">login</a>
+  <bc-admin-button *ngIf="!isAdmin"></bc-admin-button>
 </div>

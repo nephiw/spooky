@@ -2,12 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { RouterModule } from '@angular/router';
 
 import { ContactService } from './contact.service';
+import { AdminButtonComponent } from './admin-button/admin-button.component';
+import { PasswordChangePageComponent } from './authentication';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ReactiveFormsModule,
     AngularFireDatabaseModule
   ],
@@ -16,7 +20,12 @@ import { ContactService } from './contact.service';
   ],
   exports: [
     ReactiveFormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AdminButtonComponent
+  ],
+  declarations: [
+    AdminButtonComponent,
+    PasswordChangePageComponent
   ],
 })
 export class BcCommonModule { }

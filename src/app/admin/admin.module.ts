@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminPageComponent, ContactsComponent } from './admin-page';
+import { BcCommonModule } from 'common/bc-common.module';
 
 @NgModule({
   imports: [
     CommonModule,
     AdminRoutingModule,
+    BcCommonModule,
     FormsModule
   ],
   declarations: [

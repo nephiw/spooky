@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-
   constructor(
     private service: AngularFireAuth
   ) { }
@@ -20,6 +21,12 @@ export class AuthenticationService {
     try {
       await this.service.auth.signOut();
     } catch (_error) { }
+  }
+
+  public isLoggedIn(): Observable<boolean> {
+    return this.service.user.pipe(map((user) => {
+      return user !== null;
+    }));
   }
 
   // Instead of loging out and back in before changing the password, which is required
