@@ -1,4 +1,5 @@
 <a class="logout float right" (click)="logout()">Logout</a>
 <h1>Spooky Admin</h1>
-<p>These are all of the contacts who have signed up for a trunk.</p>
-<bc-contacts [contacts]="allContacts$ | async"></bc-contacts>
+<a [routerLink]="['contacts']" routerLinkActive="active" class="sub-nav">See All Contacts</a>
+<a [routerLink]="['password']" routerLinkActive="active" class="sub-nav">Change Password</a>
+<router-outlet></router-outlet>
