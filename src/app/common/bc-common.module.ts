@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 
 import { ContactService } from './contact.service';
 import { AdminButtonComponent } from './admin-button/admin-button.component';
-import { PasswordChangePageComponent } from './authentication';
 
 @NgModule({
   imports: [
@@ -24,8 +23,7 @@ import { PasswordChangePageComponent } from './authentication';
     AdminButtonComponent
   ],
   declarations: [
-    AdminButtonComponent,
-    PasswordChangePageComponent
+    AdminButtonComponent
   ],
 })
 export class BcCommonModule { }

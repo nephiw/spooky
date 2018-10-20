@@ -9,11 +9,9 @@ import { AdminService } from 'admin/admin.service';
   styleUrls: ['./admin-page.component.less']
 })
 export class AdminPageComponent {
-  public allContacts$ = this.admin.getAllContacts();
 
   constructor(
     private auth: AuthenticationService,
-    private admin: AdminService,
     private router: Router
   ) { }
 

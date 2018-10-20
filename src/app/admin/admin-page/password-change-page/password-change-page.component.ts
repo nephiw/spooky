@@ -1,7 +1,7 @@
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../authentication.service';
+import { AuthenticationService } from 'common/authentication/authentication.service';
 
 @Component({
   selector: 'bc-password-change-page',
