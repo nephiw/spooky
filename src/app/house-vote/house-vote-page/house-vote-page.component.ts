@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { SelectableHouse } from 'house-vote/selected-house';
-import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
+import { StorageService, LOCAL_STORAGE } from 'ngx-webstorage-service';
+import { RandomService } from 'common/random.service';
 
 @Component({
   selector: 'bc-house-vote-page',
@@ -9,15 +10,19 @@ import { SESSION_STORAGE, StorageService } from 'ngx-webstorage-service';
 })
 export class HouseVotePageComponent implements OnInit {
   public houses: SelectableHouse[];
+  private uuid: string;
 
   constructor(
-    @Inject(SESSION_STORAGE) private storage: StorageService
+    @Inject(LOCAL_STORAGE) private storage: StorageService,
+    private randomService: RandomService
   ) { }
 
   ngOnInit() {
     let currentSelection;
     try {
       const currentString = this.storage.get('selected');
+      this.uuid = this.storage.get('uuid') || this.randomService.uuid();
+      this.storage.set('uuid', this.uuid);
       currentSelection = currentString ? JSON.parse(currentString) : null;
     } catch (_error) {
       console.log('There was a problem fetching the selected choice, ' + _error);
@@ -44,7 +49,7 @@ export class HouseVotePageComponent implements OnInit {
   }
 
   public onHouseSelected(selectedHouse: SelectableHouse): void {
-    // save to local storage and store to the server.
+    // TODO: store to the server, move to service.
     this.houses.forEach((house) => house.selected = false);
     this.storage.set('selected', JSON.stringify(selectedHouse));
     selectedHouse.selected = true;
