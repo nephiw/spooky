@@ -1,0 +1,9 @@
+<h1 class="stylized">House Decoration Contest</h1>
+<p>
+  Help us figure out which decorated houses are the best. Below you will find several addresses and
+  photo's of their decorations. Vote for the house decorations you like the most.
+</p>
+<div class="entries">
+  <bc-house-entry *ngFor="let house of houses" [house]="house" (select)="onHouseSelected($event)">
+  </bc-house-entry>
+</div>
