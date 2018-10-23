@@ -14,13 +14,13 @@
     <div class="dark">• Costume Contest •</div>
     <div class="light">• Home Decorating Contest •</div>
     <br />
-    <div class="signup">
+    <div class="signup" *ngIf="acceptingTrunks">
       <a routerLink="/trunkOrTreat" id="trunk-or-treat-signup">Decorate you car!</a>
     </div>
-    <!-- <div class="signup">
+    <div class="signup" *ngIf="acceptingHouses">
       <a routerLink="/houseDecoration" id="house-decoration-signup">Decorate your home!</a>
-    </div> -->
-    <div class="house-decor-vote">
+    </div>
+    <div class="house-decor-vote" *ngIf="acceptingVotes">
       <a routerLink="/houseVote" id="house-decoration-vote">Vote for Best Decorations</a>
     </div>
     <div class="booed">
