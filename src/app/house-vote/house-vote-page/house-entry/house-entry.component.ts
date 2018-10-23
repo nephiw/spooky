@@ -9,4 +9,8 @@ import { SelectableHouse } from 'house-vote/selected-house';
 export class HouseEntryComponent {
   @Input() house: SelectableHouse;
   @Output() select: EventEmitter<SelectableHouse> = new EventEmitter();
+
+  public hideMe(event): void {
+    event.target.setAttribute('hidden', 'hidden');
+  }
 }
