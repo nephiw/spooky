@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'admin',           loadChildren: './admin/admin.module#AdminModule' },
   { path: 'trunkOrTreat',    loadChildren: './trunk-or-treat/trunk-or-treat.module#TrunkOrTreatModule' },
   { path: 'booYourNeighbor', loadChildren: './boo-your-neighbor/boo-your-neighbor.module#BooYourNeighborModule' },
-  { path: 'houseDecoration', loadChildren: './house-decoration/house-decoration.module#HouseDecorationModule' }
+  { path: 'houseDecoration', loadChildren: './house-decoration/house-decoration.module#HouseDecorationModule' },
+  { path: 'houseVote',       loadChildren: './house-vote/house-vote.module#HouseVoteModule' }
 ];
 
 @NgModule({

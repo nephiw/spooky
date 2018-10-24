@@ -1,0 +1,17 @@
+<h1 class="stylized">House Decoration Votes</h1>
+<div class="results-container" *ngIf="votingResults$ | async as results">
+  <div>Total Houses With Votes: {{ results.length }}</div>
+  <div>Total Votes Cast: {{ votesCast }}</div>
+  <table>
+    <thead>
+      <th>Address</th>
+      <th>Votes</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of results" class="contact-card">
+        <td class="contact-trunks" data-label="Address">{{ result.address }}</td>
+        <td class="contact-address" data-label="Count">{{ result.count }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

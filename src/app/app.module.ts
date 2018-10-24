@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ContactService } from 'common';
 import { AuthenticationPageComponent } from 'common/authentication';
+import { StorageServiceModule } from 'ngx-webstorage-service';
 import { BcCommonModule } from 'common/bc-common.module';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { BcCommonModule } from 'common/bc-common.module';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AppRoutingModule,
+    StorageServiceModule,
     BcCommonModule
   ],
   providers: [ContactService],

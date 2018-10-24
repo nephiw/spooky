@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, zip } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, zip, from } from 'rxjs';
+import { map, groupBy, mergeMap, toArray, concatMap, reduce, count } from 'rxjs/operators';
 import { Contact, Trunk } from 'common';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { House } from 'house-decoration';
@@ -33,5 +33,37 @@ export class AdminService {
         return results;
       })
     );
+  }
+
+  public getVotes(): Observable<any[]> {
+    return this.db.list('/houseVotes').valueChanges().pipe(
+      map((results) => {
+        const groups = results.reduce((acc, currentValue) => {
+          const key = (currentValue as any).address;
+          acc[key] = acc[key] ? 1 + acc[key] : 1;
+          return acc;
+        }, {});
+        const simplifiedResults = Object.keys(groups).map((key) => ({ address: key, count: groups[key] }));
+        return simplifiedResults.sort((a, b) => {
+          if (a.count < b.count) { return 1; }
+          if (a.count === b.count) { return 0; }
+          if (a.count > b.count) { return -1; }
+        });
+      })
+    );
+
+    //   concatMap(list => from(list)),
+    //   groupBy(house => (house as any).address),
+    //   mergeMap(group => {
+    //     return group.pipe(
+    //       count(),
+    //       map(total => {
+    //         console.log('map');
+    //         return { address: group.key, total };
+    //       }),
+    //       toArray()
+    //     );
+    //   })
+    // );
   }
 }

@@ -5,6 +5,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { RouterModule } from '@angular/router';
 
 import { ContactService } from './contact.service';
+import { RandomService } from './random.service';
 import { AdminButtonComponent } from './admin-button/admin-button.component';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AdminButtonComponent } from './admin-button/admin-button.component';
     AngularFireDatabaseModule
   ],
   providers: [
-    ContactService
+    ContactService,
+    RandomService
   ],
   exports: [
     ReactiveFormsModule,
