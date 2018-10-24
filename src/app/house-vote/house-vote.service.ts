@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { RandomService } from 'common/random.service';
 import { SelectableHouse } from './selected-house';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable, of } from 'rxjs';
@@ -64,11 +63,23 @@ export class HouseVoteService {
         selected: false,
         address: '10674 Belle Creek Blvd',
         path: 'assets/images/10674BelleCreekBlvd.jpg'
+      }, {
+        selected: false,
+        address: '9440 E 106th Ave',
+        path: 'assets/images/9440E106thAve.jpg'
+      }, {
+        selected: false,
+        address: '9430 E 106th Ave',
+        path: 'assets/images/9430E106thAve.jpg'
+      }, {
+        selected: false,
+        address: '9197 E 107th Ave',
+        path: 'assets/images/9197E107thAve.jpg'
       }
     ]);
   }
 
-  public saveVote(house: SelectableHouse): Observable < any > {
+  public saveVote(house: SelectableHouse): Observable <any> {
     let voteKey = this.storage.get('uuid');
     if (voteKey) {
       this.db.object(`/houseVotes/${ voteKey }`).update(house);

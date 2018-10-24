@@ -154,15 +154,16 @@ form {
     width: 25%;
     margin: 0px auto 45px auto;
   }
+
   .group {
     position: relative;
     margin: 45px 0;
   }
-  
+
   textarea {
     resize: none;
   }
-  
+
   input,
   textarea {
     background: none;
@@ -174,27 +175,27 @@ form {
     border: none;
     border-radius: 0;
     border-bottom: 1px solid @muted-color;
-  
+
     &:focus {
       outline: none;
     }
-  
+
     &:focus~label,
     &:valid~label {
       top: -14px;
       font-size: 12px;
       color: @hl-color;
     }
-  
+
     &:focus~.bar:before {
       width: @width;
     }
   }
-  
+
   input[type="password"] {
     letter-spacing: 0.3em;
   }
-  
+
   label {
     color: @muted-color;
     font-size: 16px;
@@ -205,12 +206,12 @@ form {
     top: 10px;
     transition: @trans-time ease all;
   }
-  
+
   .bar {
     position: relative;
     display: block;
     width: @width;
-  
+
     &:before {
       content: '';
       height: 2px;
@@ -296,4 +297,8 @@ form {
 .btn-box {
   text-align: center;
   margin: 50px 0;
+}
+
+table {
+  margin-top: 15px;
 }

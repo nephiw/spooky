@@ -6,6 +6,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminPageComponent, ContactsComponent, PasswordChangePageComponent } from './admin-page';
 import { BcCommonModule } from 'common/bc-common.module';
 import { ContactsPageComponent } from './admin-page/contacts-page/contacts-page.component';
+import { VotingResultsComponent } from './admin-page/voting-results/voting-results.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { ContactsPageComponent } from './admin-page/contacts-page/contacts-page.
     AdminPageComponent,
     ContactsComponent,
     PasswordChangePageComponent,
-    ContactsPageComponent
+    ContactsPageComponent,
+    VotingResultsComponent
   ]
 })
 export class AdminModule { }

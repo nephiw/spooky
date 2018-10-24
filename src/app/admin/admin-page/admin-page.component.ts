@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from 'common/authentication';
 import { Router } from '@angular/router';
-import { AdminService } from 'admin/admin.service';
 
 @Component({
   selector: 'bc-admin-page',
