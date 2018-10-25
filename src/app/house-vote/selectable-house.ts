@@ -2,4 +2,5 @@ export interface SelectableHouse {
   selected: boolean;
   address: string;
   path: string;
+  number: number;
 }

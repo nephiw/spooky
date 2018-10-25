@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { HouseDecorationService } from '../../house-decoration.service';
 import { LoadingState } from 'common/loading-state.enum';
 
@@ -13,7 +14,8 @@ export class HouseDecorationFormComponent implements OnInit {
   public decorationForm: FormGroup;
 
   constructor(
-    private houseService: HouseDecorationService
+    private houseService: HouseDecorationService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -37,7 +39,7 @@ export class HouseDecorationFormComponent implements OnInit {
         this.decorationForm.reset();
         this.stateChanged.emit(LoadingState.COMPLETED);
       } catch (_error) {
-        console.log(_error);
+        this.toastr.error('There was an error submitting your home for decorations.');
         this.stateChanged.emit(LoadingState.ERROR);
       }
     }

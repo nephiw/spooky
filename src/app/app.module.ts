@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -21,8 +22,9 @@ import { BcCommonModule } from 'common/bc-common.module';
     AuthenticationPageComponent
   ],
   imports: [
-    BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    BrowserModule,
+    BrowserAnimationsModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
     AppRoutingModule,

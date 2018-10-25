@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { SelectableHouse } from 'house-vote/selected-house';
+import { SelectableHouse } from 'house-vote/selectable-house';
 
 @Component({
   selector: 'bc-house-entry',

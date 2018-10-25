@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { TrunkOrTreatService } from 'trunk-or-treat/trunk-or-treat.service';
 import { LoadingState } from 'common/loading-state.enum';
 
@@ -13,7 +14,8 @@ export class TrunkOrTreatFormComponent implements OnInit {
   public trunkOrTreatForm: FormGroup;
 
   constructor(
-    private service: TrunkOrTreatService
+    private service: TrunkOrTreatService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -34,7 +36,7 @@ export class TrunkOrTreatFormComponent implements OnInit {
         this.trunkOrTreatForm.reset();
         this.stateChanged.emit(LoadingState.COMPLETED);
       } catch (_error) {
-        console.log(_error);
+        this.toastr.error('There was an error submitting your request.');
         this.stateChanged.emit(LoadingState.ERROR);
       }
     }

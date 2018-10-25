@@ -1,5 +1,5 @@
 <a class="house-entry-container" [class.selected]="house.selected" (click)="select.emit(house)">
-  <div class="house-address">{{ house.address }}</div>
+  <div class="house-address">{{ house.number }}.) {{ house.address }}</div>
   <div class="house-photo">
     <img [src]="house.path" (error)="hideMe($event)">
   </div>

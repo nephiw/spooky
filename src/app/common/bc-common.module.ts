@@ -3,17 +3,22 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 import { ContactService } from './contact.service';
 import { RandomService } from './random.service';
-import { AdminButtonComponent } from './admin-button/admin-button.component';
+import { AdminButtonComponent } from './admin-button';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-full-width',
+      preventDuplicates: true,
+    })
   ],
   providers: [
     ContactService,
@@ -22,7 +27,8 @@ import { AdminButtonComponent } from './admin-button/admin-button.component';
   exports: [
     ReactiveFormsModule,
     AngularFireDatabaseModule,
-    AdminButtonComponent
+    AdminButtonComponent,
+    ToastrModule
   ],
   declarations: [
     AdminButtonComponent

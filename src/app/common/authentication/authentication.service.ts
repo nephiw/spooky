@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,7 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class AuthenticationService {
   constructor(
-    private service: AngularFireAuth
+    private service: AngularFireAuth,
+    private toastr: ToastrService
   ) { }
 
   public login(credentials: { email: string, password: string }) {
@@ -41,7 +43,7 @@ export class AuthenticationService {
       const user = this.service.auth.currentUser;
       await user.updatePassword(newPassword);
     } catch (_error) {
-      console.log('There was an error updating the password, error:', _error);
+      this.toastr.error(`There was an error updating the password`);
     }
   }
 }
