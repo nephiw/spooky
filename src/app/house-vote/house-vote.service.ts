@@ -18,77 +18,77 @@ export class HouseVoteService {
     return of([{
         selected: false,
         address: '10827 Beeler St',
-        path: 'assets/images/10827BeelerSt.jpg',
+        path: 'assets/images/10827BeelerSt.png',
         number: 1
       }, {
         selected: false,
         address: '9465 E 108th Pl',
-        path: 'assets/images/9465E108thPl.jpg',
+        path: 'assets/images/9465E108thPl.png',
         number: 2
       }, {
         selected: false,
         address: '10824 Belle Creek Blvd',
-        path: 'assets/images/10824BelleCreekBlvd.jpg',
+        path: 'assets/images/10824BelleCreekBlvd.png',
         number: 6
       }, {
         selected: false,
         address: '9498 E 108th Ave',
-        path: 'assets/images/9498E108thAve.jpg',
+        path: 'assets/images/9498E108thAve.png',
         number: 3
       }, {
         selected: false,
         address: '10755 Boston St',
-        path: 'assets/images/10755BostonSt.jpg',
+        path: 'assets/images/10755BostonSt.png',
         number: 9
       }, {
         selected: false,
         address: '10774 Belle Creek Blvd #117',
-        path: 'assets/images/10774BelleCreekBlvd117.jpg',
+        path: 'assets/images/10774BelleCreekBlvd117.png',
         number: 10
       }, {
         selected: false,
         address: '9253 E 108th Ave',
-        path: 'assets/images/9253E108thAve.jpg',
+        path: 'assets/images/9253E108thAve.png',
         number: 7
       }, {
         selected: false,
         address: '10864 Belle Creek Blvd',
-        path: 'assets/images/10864BelleCreekBlvd.jpg',
+        path: 'assets/images/10864BelleCreekBlvd.png',
         number: 4
       }, {
         selected: false,
         address: '9451 E 106th Ave',
-        path: 'assets/images/9451E106thAve.jpg',
+        path: 'assets/images/9451E106thAve.png',
         number: 8
       }, {
         selected: false,
         address: '9676 E 105th Pl',
-        path: 'assets/images/9676E105thPl.jpg',
+        path: 'assets/images/9676E105thPl.png',
         number: 11
       }, {
         selected: false,
         address: '9271 E 107th Pl',
-        path: 'assets/images/9271E107thPl.jpg',
+        path: 'assets/images/9271E107thPl.png',
         number: 5
       }, {
         selected: false,
         address: '10674 Belle Creek Blvd',
-        path: 'assets/images/10674BelleCreekBlvd.jpg',
+        path: 'assets/images/10674BelleCreekBlvd.png',
         number: 12
       }, {
         selected: false,
         address: '9440 E 106th Ave',
-        path: 'assets/images/9440E106thAve.jpg',
+        path: 'assets/images/9440E106thAve.png',
         number: 13
       }, {
         selected: false,
         address: '9430 E 106th Ave',
-        path: 'assets/images/9430E106thAve.jpg',
+        path: 'assets/images/9430E106thAve.png',
         number: 14
       }, {
         selected: false,
         address: '9197 E 107th Ave',
-        path: 'assets/images/9197E107thAve.jpg',
+        path: 'assets/images/9197E107thAve.png',
         number: 15
       }
     ]);
