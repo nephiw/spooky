@@ -12,7 +12,7 @@ export class HouseDecorationService {
 
   public async createHouse(data: any) {
     const contactKey = this.contactService.generateKey(data);
-    const house = { contactKey, streetAddress: data.streetAddress };
+    const house = { contactKey, streetAddress: data.streetAddress, timestamp: Date.now() };
 
     await this.contactService.createNewContact(data);
 

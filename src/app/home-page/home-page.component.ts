@@ -13,12 +13,13 @@ export class HomePageComponent implements OnInit {
   public ngOnInit(): void {
     const now = (new Date()).getTime();
 
-    const houseCutoff = new Date('2018-10-23T23:55:00');
-    const trunkCutoff = new Date('2018-10-27T17:00:00');
-    const voteCutoff = new Date('2018-10-27T18:25:00');
+    const houseCutoff = new Date('2019-10-22T23:55:00');
+    const trunkCutoff = new Date('2019-10-26T17:00:00');
+    const voteCutoff = new Date('2019-10-26T18:25:00');
+    const voteStart =  new Date('2019-10-19T23:55:01');
 
     this.acceptingHouses = now < houseCutoff.getTime();
     this.acceptingTrunks = now < trunkCutoff.getTime();
-    this.acceptingVotes = now < voteCutoff.getTime();
+    this.acceptingVotes = now < voteCutoff.getTime() && now > voteStart.getTime();
   }
 }
