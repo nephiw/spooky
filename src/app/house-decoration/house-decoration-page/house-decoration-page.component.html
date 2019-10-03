@@ -1,14 +1,15 @@
 <h1 class="stylized">House Decorating Contest</h1>
 <p>
-  This year we are going to try to have a best Halloween Decorations contest. Sign up and see if your neighbors believe you have the
-  best decorated home in Belle Creek. This time, the plan is to photograph each house and allow voting based on photos. There will 
-  never be as substitue for viewing the house in real time, but this will give homes a little off the beaten path a chance!
+  Sign up and see if your neighbors believe you have the best decorated home in Belle Creek. The plan is to photograph each 
+  house and allow voting based on photos. There will never be as substitue for viewing the house in real time, but this will
+  give homes a little off the beaten path a chance!
 </p><p>
   All forms fields must be completed to submit. You can change your submission by re-submitting with the same email address.
 </p><p>
   We do not need your full address, we assume you live in Belle Creek, so the street address is all that you need to provide to sign up.
   For example, the family center's street address is "10693 Belle Creek Blvd."
 </p>
+<hr>
 
 <bc-house-decoration-form (stateChanged)="stateChanged($event)"
                           *ngIf="loadingState !== States.COMPLETED">

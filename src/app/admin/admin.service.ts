@@ -28,7 +28,8 @@ export class AdminService {
 
           results.push(Object.assign({
             numTrunks: trunk ? trunk.numTrunks : 0,
-            streetAddress: house ? house.streetAddress : ''
+            streetAddress: house ? house.streetAddress : '',
+            timestamp: house ? house.timestamp : trunk.timestamp
           }, contact));
         });
         return results;
