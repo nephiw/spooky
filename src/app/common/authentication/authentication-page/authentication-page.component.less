@@ -3,4 +3,24 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .error {
+    .bar::before {
+      background: red;
+    }
+
+    input {
+      border-bottom-color: red;
+    }
+
+    label {
+      color: red;
+    }
+  }
+
+  .error-message {
+    font-size: 0.8em;
+    margin-bottom: 2em;
+    color: red;
+  }
 }

@@ -11,7 +11,8 @@ const routes: Routes = [
     children: [
       { path: 'contacts', component: ContactsPageComponent },
       { path: 'password', component: PasswordChangePageComponent },
-      { path: 'results',  component: VotingResultsComponent }
+      { path: 'results',  component: VotingResultsComponent },
+      { path: '', pathMatch: 'full', redirectTo: 'contacts' }
     ]
   }
 ];

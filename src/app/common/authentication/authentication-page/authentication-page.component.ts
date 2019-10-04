@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationPageComponent implements OnInit {
   public authenticationForm: FormGroup;
+  public hasError = false;
 
   constructor(
     private auth: AuthenticationService,
@@ -24,8 +25,11 @@ export class AuthenticationPageComponent implements OnInit {
   }
 
   public login(): void {
+    this.hasError = false;
     this.auth.login(this.authenticationForm.value).then(() => {
-      return this.router.navigate(['admin']);
+      return this.router.navigate(['admin', 'contacts']);
+    }).catch((err) => {
+      this.hasError = true;
     });
   }
 

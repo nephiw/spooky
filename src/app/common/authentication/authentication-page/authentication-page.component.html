@@ -1,16 +1,19 @@
 <form [formGroup]="authenticationForm" (ngOnSubmit)="login()">
-  <div class="input-item group">
-    <input required="required" type="email" formControlName="email" />
+  <div class="input-item group" [class.error]="hasError">
+    <input type="email" formControlName="email" />
     <span class="highlight"></span>
     <span class="bar"></span>
     <label id="first-name">Email</label>
   </div>
 
-  <div class="input-item group">
-    <input required="required" type="password" formControlName="password" />
+  <div class="input-item group" [class.error]="hasError">
+    <input type="password" formControlName="password" />
     <span class="highlight"></span>
     <span class="bar"></span>
     <label id="last-name">Password</label>
+  </div>
+  <div class="error-message" *ngIf="hasError">
+    Your password and/or email were not accepted.
   </div>
   <div class="button-row">
     <button class="btn btn-submit"
