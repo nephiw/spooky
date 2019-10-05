@@ -1,23 +1,41 @@
-<h1 class="stylized">House Decorating Contest</h1>
-<p>
-  Sign up and see if your neighbors believe you have the best decorated home in Belle Creek. The plan is to photograph each 
-  house and allow voting based on photos. There will never be as substitue for viewing the house in real time, but this will
-  give homes a little off the beaten path a chance!
-</p><p>
-  All forms fields must be completed to submit. You can change your submission by re-submitting with the same email address.
-</p><p>
-  We do not need your full address, we assume you live in Belle Creek, so the street address is all that you need to provide to sign up.
-  For example, the family center's street address is "10693 Belle Creek Blvd."
-</p>
-<hr>
+<div class="centered">
+  <h1 class="stylized">House Decorating Contest</h1>
+  <h3>
+    Sponsored by the
+    <a href="https://www.westerhometeam.com/" target="wester"
+      >Wester Home Team</a
+    >
+  </h3>
+  <img src="/assets/images/wester_logo.jpg" />
+</div>
 
-<bc-house-decoration-form (stateChanged)="stateChanged($event)"
-                          *ngIf="loadingState !== States.COMPLETED">
+<p>
+  Sign up and see if your neighbors believe you have the best decorated home in
+  Belle Creek. The plan is to photograph each house and allow voting based on
+  photos. There will never be as substitue for viewing the house in real time,
+  but this will give homes a little off the beaten path a chance!
+</p>
+<p>
+  All forms fields must be completed to submit. You can change your submission
+  by re-submitting with the same email address.
+</p>
+<p>
+  We do not need your full address, we assume you live in Belle Creek, so the
+  street address is all that you need to provide to sign up. For example, the
+  family center's street address is "10693 Belle Creek Blvd."
+</p>
+<hr />
+
+<bc-house-decoration-form
+  (stateChanged)="stateChanged($event)"
+  *ngIf="loadingState !== States.COMPLETED"
+>
 </bc-house-decoration-form>
-<bc-house-decoration-complete (reset)="stateChanged(States.UNSTARTED)"
-                              *ngIf="loadingState === States.COMPLETED">
+<bc-house-decoration-complete
+  (reset)="stateChanged(States.UNSTARTED)"
+  *ngIf="loadingState === States.COMPLETED"
+>
 </bc-house-decoration-complete>
 <div class="return-home">
   <a routerLink="/">Back Home</a>
 </div>
-
