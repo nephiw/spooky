@@ -17,13 +17,19 @@ export class ContactsComponent implements OnChanges {
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes.contacts && changes.contacts.currentValue) {
       if (this.contacts) {
-        this.totalTrunks = this.contacts.reduce((accumulator: number, current: any) => {
-          return accumulator + current.numTrunks;
-        }, 0);
+        this.totalTrunks = this.contacts.reduce(
+          (accumulator: number, current: any) => {
+            return accumulator + current.numTrunks;
+          },
+          0
+        );
 
-        this.totalHouses = this.contacts.reduce((accumulator: number, current: any) => {
-          return accumulator + (current.streetAddress ? 1 : 0);
-        }, 0);
+        this.totalHouses = this.contacts.reduce(
+          (accumulator: number, current: any) => {
+            return accumulator + (current.streetAddress ? 1 : 0);
+          },
+          0
+        );
       } else {
         this.totalTrunks = 0;
         this.totalHouses = 0;
@@ -33,10 +39,16 @@ export class ContactsComponent implements OnChanges {
   }
 
   public updateFilters(): void {
-    this.filteredContacts = this.contacts.filter((contact) => {
-      const hasTrunks = this.showTrunks && contact.numTrunks > 0;
-      const hasHouses = this.showHouses && !!contact.streetAddress;
-      return hasTrunks || hasHouses;
-    });
+    this.filteredContacts = this.contacts
+      .filter(contact => {
+        const hasTrunks = this.showTrunks && contact.numTrunks > 0;
+        const hasHouses = this.showHouses && !!contact.streetAddress;
+        return hasTrunks || hasHouses;
+      })
+      .sort((a, b) => {
+        if (a.timestamp < b.timestamp) { return -1; }
+        if (a.timestamp > b.timestamp) { return 1; }
+        return 0;
+      });
   }
 }
