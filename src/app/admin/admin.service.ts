@@ -9,53 +9,140 @@ import { House } from 'house-decoration';
   providedIn: 'root'
 })
 export class AdminService {
-  constructor(
-    private db: AngularFireDatabase
-  ) {}
+  private contactsRef: Observable<any>;
+  private trunkRef: Observable<any>;
+  private houseRef: Observable<any>;
+  private votesRef: Observable<any>;
 
-  public getAllContacts(): Observable < any[] > {
-    const trunkRef = this.db.list('/trunks').valueChanges();
-    const houseRef = this.db.list('/houses').valueChanges();
-    const contactsRef = this.db.list('/contacts').valueChanges();
+  private byCount: (a: any, b: any) => number;
+  private byTimestamp: (a: any, b: any) => number;
 
-    return zip(trunkRef, houseRef, contactsRef).pipe(
+  private objectSort(prop: string, a: any, b: any): number {
+    if (a[prop] > b[prop]) { return  1; }
+    if (a[prop] < b[prop]) { return -1; }
+    return 0;
+  }
+
+  constructor(private db: AngularFireDatabase) {
+    this.trunkRef = this.db.list('/trunks').valueChanges();
+    this.houseRef = this.db.list('/houses').valueChanges();
+    this.contactsRef = this.db.list('/contacts').valueChanges();
+    this.votesRef = this.db.list('/houseVotes').valueChanges();
+
+    this.byCount = this.objectSort.bind(this, 'count');
+    this.byTimestamp = this.objectSort.bind(this, 'timestamp');
+  }
+
+  public getAllContacts(): Observable<any[]> {
+    return zip(this.trunkRef, this.houseRef, this.contactsRef).pipe(
       map(([trunks, houses, contacts]) => {
         const results = [];
 
         contacts.forEach((contact: Contact) => {
-          const house = houses.find((h: House) => h.contactKey === contact.key) as House;
-          const trunk = trunks.find((t: Trunk) => t.contactKey === contact.key) as Trunk;
+          const house = houses.find(
+            (h: House) => h.contactKey === contact.key
+          ) as House;
+          const trunk = trunks.find(
+            (t: Trunk) => t.contactKey === contact.key
+          ) as Trunk;
 
-          results.push(Object.assign({
-            numTrunks: trunk ? trunk.numTrunks : 0,
-            streetAddress: house ? house.streetAddress : '',
-            timestamp: house ? house.timestamp : trunk.timestamp
-          }, contact));
+          results.push(
+            Object.assign(
+              {
+                numTrunks: trunk ? trunk.numTrunks : 0,
+                streetAddress: house ? house.streetAddress : '',
+                timestamp: house ? house.timestamp : trunk.timestamp
+              },
+              contact
+            )
+          );
         });
+        results.sort(this.byTimestamp);
         return results;
       })
     );
   }
 
-  public getVotes(): Observable <any[]> {
-    return this.db.list('/houseVotes').valueChanges().pipe(
-      map((houseVotes) => {
+  public getHouseContacts(): Observable<any[]> {
+    return zip(this.houseRef, this.contactsRef).pipe(
+      map(([houses, contacts]) => {
+        const results = [];
+
+        houses.forEach((house: House) => {
+          const contact = contacts.find(
+            (c: Contact) => house.contactKey === c.key
+          ) as Contact;
+
+          results.push(
+            Object.assign(
+              {
+                streetAddress: house.streetAddress,
+                timestamp: house.timestamp,
+                emailed: house.emailed,
+                signed: house.signed
+              },
+              contact
+            )
+          );
+        });
+        results.sort(this.byTimestamp);
+        return results;
+      })
+    );
+  }
+
+  public getTrunkContacts(): Observable<any[]> {
+    return zip(this.trunkRef, this.contactsRef).pipe(
+      map(([trunks, contacts]) => {
+        const results = [];
+
+        trunks.forEach((trunk: Trunk) => {
+          const contact = contacts.find(
+            (c: Contact) => trunk.contactKey === c.key
+          ) as Contact;
+
+          results.push(
+            Object.assign(
+              {
+                numTrunks: trunk.numTrunks || 0,
+                timestamp: trunk.timestamp
+              },
+              contact
+            )
+          );
+        });
+        results.sort(this.byTimestamp);
+        return results;
+      })
+    );
+  }
+
+  public getVotes(): Observable<any[]> {
+    return this.votesRef.pipe(
+      map(houseVotes => {
         return houseVotes.reduce((acc, currentValue) => {
           const key = (currentValue as any).address;
           acc[key] = acc[key] ? 1 + acc[key] : 1;
           return acc;
         }, {});
       }),
-      map((countedGroups) => {
-        return Object.keys(countedGroups).map((key) => ({ address: key, count: countedGroups[key] }));
+      map(countedGroups => {
+        return Object.keys(countedGroups).map(key => ({
+          address: key,
+          count: countedGroups[key]
+        }));
       }),
-      map((unsortedGroups) => {
-        return unsortedGroups.sort((a, b) => {
-          if (a.count < b.count) { return 1; }
-          if (a.count === b.count) { return 0; }
-          if (a.count > b.count) { return -1; }
-        });
+      map(unsortedGroups => {
+        return unsortedGroups.sort(this.byCount);
       })
     );
+  }
+
+  public changeEmailed(key: string, emailed: boolean): void {
+    this.db.object(`/houses/${key}/emailed`).set(emailed);
+  }
+
+  public changeSigned(key: string, signed: boolean): void {
+    this.db.object(`/houses/${key}/signed`).set(signed);
   }
 }

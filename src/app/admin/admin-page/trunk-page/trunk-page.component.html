@@ -1,0 +1,9 @@
+<p>These are all of the contacts who have signed up for a trunk.</p>
+<div class="contacts">
+  <div class="summary">
+    <div class="trunk-totals">
+      There are currently {{ totalTrunks$ | async }} people who have signed up to decorate trunks.
+    </div>
+  </div>
+  <bc-trunk-table [trunks]="trunks$ | async"></bc-trunk-table>
+</div>
