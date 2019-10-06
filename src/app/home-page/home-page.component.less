@@ -4,10 +4,38 @@
   }
 
   .smaller {
-    font-size: 0.60em;
+    font-size: 0.6em;
   }
 
   .clear-floats {
     clear: both;
+  }
+
+  .tile-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+
+  .tile {
+    width: calc((100% / 3) - 1em);
+    min-width: 150px;
+    padding: 5px;
+
+    h2 {
+      font-size: 0.95em;
+      height: 3em;
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      border: solid black 1px;
+      border-radius: 0.5em;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 }
