@@ -16,6 +16,7 @@ export class AdminService {
 
   private byCount: (a: any, b: any) => number;
   private byTimestamp: (a: any, b: any) => number;
+  private byEmail: (a: any, b: any) => number;
 
   private objectSort(prop: string, a: any, b: any): number {
     if (a[prop] > b[prop]) { return  1; }
@@ -31,34 +32,14 @@ export class AdminService {
 
     this.byCount = this.objectSort.bind(this, 'count');
     this.byTimestamp = this.objectSort.bind(this, 'timestamp');
+    this.byEmail = this.objectSort.bind(this, 'email');
   }
 
   public getAllContacts(): Observable<any[]> {
-    return zip(this.trunkRef, this.houseRef, this.contactsRef).pipe(
-      map(([trunks, houses, contacts]) => {
-        const results = [];
-
-        contacts.forEach((contact: Contact) => {
-          const house = houses.find(
-            (h: House) => h.contactKey === contact.key
-          ) as House;
-          const trunk = trunks.find(
-            (t: Trunk) => t.contactKey === contact.key
-          ) as Trunk;
-
-          results.push(
-            Object.assign(
-              {
-                numTrunks: trunk ? trunk.numTrunks : 0,
-                streetAddress: house ? house.streetAddress : '',
-                timestamp: house ? house.timestamp : trunk.timestamp
-              },
-              contact
-            )
-          );
-        });
-        results.sort(this.byTimestamp);
-        return results;
+    return this.contactsRef.pipe(
+      map((contacts) => {
+        contacts.sort(this.byEmail);
+        return contacts;
       })
     );
   }
