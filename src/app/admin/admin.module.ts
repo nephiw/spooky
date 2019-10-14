@@ -11,6 +11,7 @@ import { TrunkPageComponent } from './admin-page/trunk-page/trunk-page.component
 import { HousePageComponent } from './admin-page/house-page/house-page.component';
 import { HouseTableComponent } from './admin-page/house-page/house-table/house-table.component';
 import { TrunkTableComponent } from './admin-page/trunk-page/trunk-table/trunk-table.component';
+import { NumberInputComponent } from './admin-page/house-page/house-table/number-input/number-input.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { TrunkTableComponent } from './admin-page/trunk-page/trunk-table/trunk-t
     TrunkPageComponent,
     HousePageComponent,
     HouseTableComponent,
-    TrunkTableComponent
+    TrunkTableComponent,
+    NumberInputComponent
   ]
 })
 export class AdminModule { }

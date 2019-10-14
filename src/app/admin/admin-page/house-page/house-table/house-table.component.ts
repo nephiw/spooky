@@ -19,4 +19,8 @@ export class HouseTableComponent {
   public changeEmailed(house: any) {
     this.adminService.changeEmailed(house.key, house.emailed);
   }
+
+  public setNumber(house: any): void {
+    this.adminService.setNumber(house.key, house.number);
+  }
 }

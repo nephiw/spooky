@@ -57,6 +57,7 @@ export class AdminService {
           results.push(
             Object.assign(
               {
+                number: house.number || 0,
                 streetAddress: house.streetAddress,
                 timestamp: house.timestamp,
                 emailed: house.emailed,
@@ -125,5 +126,9 @@ export class AdminService {
 
   public changeSigned(key: string, signed: boolean): void {
     this.db.object(`/houses/${key}/signed`).set(signed);
+  }
+
+  public setNumber(key: string, num: number): void {
+    this.db.object(`/houses/${key}/number`).set(num);
   }
 }
