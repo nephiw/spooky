@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'admin/admin.service';
-import { first } from 'rxjs/operators';
 import { House } from 'house-decoration';
 
 @Component({
@@ -17,7 +16,7 @@ export class HouseDetailPageComponent implements OnInit {
 
   ngOnInit() {
     this.key = this.activatedRoute.snapshot.paramMap.get('key');
-    this.adminService.getHouse(this.key).pipe(first()).subscribe((house: House) => {
+    this.adminService.getHouse(this.key).subscribe((house: House) => {
       this.house = house;
     });
   }

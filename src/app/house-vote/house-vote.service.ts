@@ -24,7 +24,7 @@ export class HouseVoteService {
       return houses.map((house: House) => ({
         selected: false,
         address: house.streetAddress,
-        path: '',
+        path: house.path || '',
         number: house.number
       } as SelectableHouse));
     }));

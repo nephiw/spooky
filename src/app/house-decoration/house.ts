@@ -5,4 +5,5 @@ export interface House {
   timestamp: number;
   emailed: boolean;
   signed: boolean;
+  path: string;
 }

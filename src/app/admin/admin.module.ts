@@ -14,6 +14,7 @@ import { TrunkTableComponent } from './admin-page/trunk-page/trunk-table/trunk-t
 import { NumberInputComponent } from './admin-page/house-page/house-table/number-input/number-input.component';
 import { HouseDetailPageComponent } from './admin-page/house-page/house-detail-page/house-detail-page.component';
 import { PhotoEditorComponent } from './admin-page/house-page/house-detail-page/photo-editor/photo-editor.component';
+import { LoadingComponent } from './admin-page/house-page/house-detail-page/loading/loading.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { PhotoEditorComponent } from './admin-page/house-page/house-detail-page/
     TrunkTableComponent,
     NumberInputComponent,
     HouseDetailPageComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    LoadingComponent
   ]
 })
 export class AdminModule { }

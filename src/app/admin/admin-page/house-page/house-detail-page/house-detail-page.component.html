@@ -3,5 +3,5 @@
   <p>Signed up on {{ house.timestamp | date: 'yyyy-MM-dd, hh:mm a' }} and recieved the number {{ house.number }}. 
     This house has <strong *ngIf="!house.emailed">not</strong> been emailed.
   </p>
-  <bc-photo-editor [key]="key"></bc-photo-editor>
+  <bc-photo-editor [house]="house"></bc-photo-editor>
 </ng-container>

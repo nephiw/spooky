@@ -77,6 +77,10 @@ export class AdminService {
     return this.db.object<House>(`/houses/${key}`).valueChanges();
   }
 
+  public updateHouse(key: string, value: Partial<House>): Promise<void> {
+    return this.db.object<House>(`/houses/${key}`).update(value);
+  }
+
   public getTrunkContacts(): Observable<any[]> {
     return zip(this.trunkRef, this.contactsRef).pipe(
       map(([trunks, contacts]) => {
