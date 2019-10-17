@@ -57,6 +57,7 @@ export class AdminService {
           results.push(
             Object.assign(
               {
+                number: house.number || 0,
                 streetAddress: house.streetAddress,
                 timestamp: house.timestamp,
                 emailed: house.emailed,
@@ -70,6 +71,14 @@ export class AdminService {
         return results;
       })
     );
+  }
+
+  public getHouse(key: string): Observable<House> {
+    return this.db.object<House>(`/houses/${key}`).valueChanges();
+  }
+
+  public updateHouse(key: string, value: Partial<House>): Promise<void> {
+    return this.db.object<House>(`/houses/${key}`).update(value);
   }
 
   public getTrunkContacts(): Observable<any[]> {
@@ -125,5 +134,9 @@ export class AdminService {
 
   public changeSigned(key: string, signed: boolean): void {
     this.db.object(`/houses/${key}/signed`).set(signed);
+  }
+
+  public setNumber(key: string, num: number): void {
+    this.db.object(`/houses/${key}/number`).set(num);
   }
 }
