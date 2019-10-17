@@ -13,6 +13,6 @@ export class HousePageComponent {
   public totalHouses$: Observable<number> = this.houses$.pipe(map(houses => houses.length));
 
   constructor(
-    private admin: AdminService
+    private readonly admin: AdminService
   ) { }
 }
