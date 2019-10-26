@@ -6,13 +6,11 @@
     <thead>
       <th>Address</th>
       <th>Votes</th>
-      <th>Created At</th>
     </thead>
     <tbody>
       <tr *ngFor="let result of results" class="contact-card">
-        <td class="contact-trunks" data-label="Address">{{ result.address }}</td>
+        <td class="contact-trunks" data-label="Address">{{ result.address }}, No. {{ result.number }}</td>
         <td class="contact-address" data-label="Count">{{ result.count }}</td>
-        <td class="contact-date" data-lable="Sign Up">{{ result.timestamp }}</td>
       </tr>
     </tbody>
   </table>

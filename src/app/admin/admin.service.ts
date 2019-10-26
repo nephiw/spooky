@@ -110,22 +110,33 @@ export class AdminService {
   public getVotes(): Observable<any[]> {
     return this.votesRef.pipe(
       map(houseVotes => {
-        return houseVotes.reduce((acc, currentValue) => {
+        const countedGroups = houseVotes.reduce((acc, currentValue) => {
           const key = (currentValue as any).address;
           acc[key] = acc[key] ? 1 + acc[key] : 1;
           return acc;
         }, {});
-      }),
-      map(countedGroups => {
+
         return Object.keys(countedGroups).map(key => ({
           address: key,
-          count: countedGroups[key]
+          count: countedGroups[key],
+          number: this.getHouseNumber(key, houseVotes)
         }));
       }),
       map(unsortedGroups => {
         return unsortedGroups.sort(this.byCount);
       })
     );
+  }
+
+  private getHouseNumber(address: string, houses: any[]): number {
+    let result: number;
+    houses.forEach((house) => {
+      if (house.address === address) {
+        result = house.number;
+        return false;
+      }
+    });
+    return result || 0;
   }
 
   public changeEmailed(key: string, emailed: boolean): void {
