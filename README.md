@@ -1,27 +1,5 @@
-# Spooky
+# Spooky Belle Creek
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8. It is a marketting site for an annual halloween event in the Belle Creek community. We use this site to sign cars up for a trunk or treat, we use it to sign houses up for our annual decorating contest. The admin pages are also in there. This site uses a few third party components and services; but mostly it is an angular site with Firebase as the server. 
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The site was generated one year really fast with little respect to maintenance but it has since been updated and used a few times. It is on my todo list to upgrade to the latest version of Angular and replace some of the 3rd party services with my own because they are often what gets in teh way of the upgrade.
