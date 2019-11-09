@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
 
     const houseCutoff = new Date('2019-10-22T23:55:00');
     const trunkCutoff = new Date('2019-10-26T17:00:00');
-    const voteCutoff = new Date('2019-10-26T18:25:00');
+    const voteCutoff = new Date('2019-10-31T18:00:00');
     const voteStart =  new Date('2019-10-19T23:55:01');
 
     this.acceptingHouses = now < houseCutoff.getTime();
